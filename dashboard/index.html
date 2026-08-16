@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sentinel — Fraud Ops Console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="logo"><span class="logo-mark">S</span>Sentinel</div>
+      <nav class="nav">
+        <div class="nav-item active">Live Monitor</div>
+        <div class="nav-item">Alerts</div>
+        <div class="nav-item">Investigation</div>
+      </nav>
+      <div class="conn-status">
+        <span id="connDot" class="conn-dot"></span>
+        <span id="connText">connecting\u2026</span>
+      </div>
+      <button id="resetBtn" class="reset-btn">Reset demo data</button>
+    </aside>
+
+    <main class="main">
+      <header class="topstrip">
+        <div>
+          <h1>Real-Time Payments Monitor</h1>
+          <p class="sub">Live risk scoring across the PayNow network</p>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><div class="kpi-val" id="kpiTotal">0</div><div class="kpi-label">Transactions</div></div>
+          <div class="kpi"><div class="kpi-val" id="kpiAlerts">0</div><div class="kpi-label">Open alerts</div></div>
+          <div class="kpi"><div class="kpi-val" id="kpiHeld">0</div><div class="kpi-label">Held for review</div></div>
+          <div class="kpi kpi-danger"><div class="kpi-val" id="kpiCritical">0</div><div class="kpi-label">Critical risk</div></div>
+        </div>
+      </header>
+
+      <section class="grid">
+        <div class="panel feed-panel">
+          <div class="panel-head">Live transaction feed</div>
+          <div id="feed" class="feed"></div>
+        </div>
+
+        <div class="panel chart-panel">
+          <div class="panel-head">Risk tier distribution</div>
+          <canvas id="tierChart" height="160"></canvas>
+          <div class="panel-head" style="margin-top:18px;">Top triggered anomalies</div>
+          <div id="ruleBars" class="rule-bars"></div>
+        </div>
+      </section>
+
+      <section class="panel alerts-panel">
+        <div class="panel-head">Alert queue &amp; investigation</div>
+        <div id="alertsTable" class="alerts-table"></div>
+      </section>
+    </main>
+  </div>
+
+  <div id="drawer" class="drawer hidden">
+    <div class="drawer-inner">
+      <button id="drawerClose" class="drawer-close">&times;</button>
+      <div id="drawerContent"></div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

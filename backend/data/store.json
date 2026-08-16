@@ -1,0 +1,143 @@
+{
+  "users": [
+    {
+      "id": "u_dakshanya",
+      "name": "Dakshanya",
+      "handle": "@dakshanya",
+      "balance": 2001,
+      "type": "sender"
+    },
+    {
+      "id": "u_ramesh",
+      "name": "Ramesh Kumar",
+      "handle": "@ramesh",
+      "balance": 20000,
+      "type": "both"
+    },
+    {
+      "id": "u_priya",
+      "name": "Priya Sharma",
+      "handle": "@priya",
+      "balance": 5000,
+      "type": "both"
+    },
+    {
+      "id": "u_arjun",
+      "name": "Arjun Vel",
+      "handle": "@arjun",
+      "balance": 4000,
+      "type": "both"
+    },
+    {
+      "id": "u_mystore",
+      "name": "QuickMart Merchant",
+      "handle": "@quickmart",
+      "balance": 252000,
+      "type": "receiver"
+    },
+    {
+      "id": "u_ghost",
+      "name": "Unknown Wallet 9182",
+      "handle": "@unk9182",
+      "balance": 50499,
+      "type": "receiver"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "tx_1786865222305_f9ra0",
+      "senderId": "u_dakshanya",
+      "receiverId": "u_ramesh",
+      "senderName": "Dakshanya",
+      "receiverName": "Ramesh Kumar",
+      "amount": 2000,
+      "note": "",
+      "deviceId": "device_4ckd4s",
+      "geo": "Chennai,IN",
+      "timestamp": 1786865222305,
+      "status": "settled",
+      "risk": {
+        "score": 0,
+        "tier": "LOW",
+        "triggeredRules": [],
+        "zScore": 0,
+        "explanation": "Transaction of ₹2,000 looks consistent with the sender's normal behavior. No anomaly rules triggered."
+      }
+    },
+    {
+      "id": "tx_1786865273137_f1mab",
+      "senderId": "u_priya",
+      "receiverId": "u_mystore",
+      "senderName": "Priya Sharma",
+      "receiverName": "QuickMart Merchant",
+      "amount": 2000,
+      "note": "",
+      "deviceId": "device_4ckd4s",
+      "geo": "Chennai,IN",
+      "timestamp": 1786865273137,
+      "status": "settled",
+      "risk": {
+        "score": 0,
+        "tier": "LOW",
+        "triggeredRules": [],
+        "zScore": 0,
+        "explanation": "Transaction of ₹2,000 looks consistent with the sender's normal behavior. No anomaly rules triggered."
+      }
+    },
+    {
+      "id": "tx_1786865327877_jfiit",
+      "senderId": "u_dakshanya",
+      "receiverId": "u_ghost",
+      "senderName": "Dakshanya",
+      "receiverName": "Unknown Wallet 9182",
+      "amount": 49999,
+      "note": "",
+      "deviceId": "device_4ckd4s",
+      "geo": "Chennai,IN",
+      "timestamp": 1786865327877,
+      "status": "settled",
+      "risk": {
+        "score": 38,
+        "tier": "MEDIUM",
+        "triggeredRules": [
+          {
+            "key": "NEW_RECEIVER_BIG",
+            "weight": 20,
+            "label": "First-time transfer to this receiver, unusually large"
+          },
+          {
+            "key": "STRUCTURING",
+            "weight": 18,
+            "label": "Amount just under a common reporting threshold (structuring pattern)"
+          }
+        ],
+        "zScore": 0,
+        "explanation": "Flagged for: first-time transfer to this receiver, unusually large and amount just under a common reporting threshold (structuring pattern). This transaction is worth a light second look."
+      }
+    },
+    {
+      "id": "tx_1786865765142_j96lx",
+      "senderId": "u_priya",
+      "receiverId": "u_dakshanya",
+      "senderName": "Priya Sharma",
+      "receiverName": "Dakshanya",
+      "amount": 2000,
+      "note": "",
+      "deviceId": "device_u23m2s",
+      "geo": "Chennai,IN",
+      "timestamp": 1786865765143,
+      "status": "settled",
+      "risk": {
+        "score": 0,
+        "tier": "LOW",
+        "triggeredRules": [],
+        "zScore": 0,
+        "explanation": "Transaction of ₹2,000 looks consistent with the sender's normal behavior. No anomaly rules triggered."
+      }
+    }
+  ],
+  "alerts": [],
+  "meta": {
+    "createdAt": 1786865026444
+  }
+}

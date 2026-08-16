@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PayNow — Wallet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="phone">
+    <div class="topbar">
+      <div class="brand"><span class="brand-mark">P</span>ayNow <span class="wallet-tag">Wallet</span></div>
+      <select id="identity" class="identity-select"></select>
+    </div>
+
+    <div class="balance-card">
+      <div class="balance-label">Wallet balance</div>
+      <div class="balance-amount" id="balance">₹ 0</div>
+      <div class="pulse-row">
+        <span class="pulse-dot"></span> Listening for incoming payments\u2026
+      </div>
+    </div>
+
+    <div class="section-head">Incoming</div>
+    <div id="incomingList" class="tx-list"></div>
+
+    <div class="section-head">Sent from this wallet</div>
+    <div id="outgoingList" class="tx-list"></div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

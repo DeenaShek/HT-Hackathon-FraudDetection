@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PayNow — Send Money</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="phone">
+    <div class="topbar">
+      <div class="brand"><span class="brand-mark">P</span>ayNow</div>
+      <select id="identity" class="identity-select"></select>
+    </div>
+
+    <div class="balance-card">
+      <div class="balance-label">Available balance</div>
+      <div class="balance-amount" id="balance">₹ 0</div>
+      <div class="device-chip" id="deviceChip">device: —</div>
+    </div>
+
+    <form id="payForm" class="pay-form">
+      <label class="field">
+        <span>Pay to</span>
+        <select id="receiver" required></select>
+      </label>
+
+      <label class="field">
+        <span>Amount</span>
+        <div class="amount-row">
+          <span class="rupee">₹</span>
+          <input id="amount" type="number" min="1" step="1" placeholder="0" required />
+        </div>
+      </label>
+
+      <label class="field">
+        <span>Note (optional)</span>
+        <input id="note" type="text" placeholder="For dinner, rent, etc." />
+      </label>
+
+      <div class="quick-amounts">
+        <button type="button" class="chip" data-amt="500">₹500</button>
+        <button type="button" class="chip" data-amt="2000">₹2,000</button>
+        <button type="button" class="chip" data-amt="10000">₹10,000</button>
+        <button type="button" class="chip" data-amt="49999">₹49,999</button>
+      </div>
+
+      <button type="submit" class="pay-btn">Pay securely</button>
+    </form>
+
+    <div id="resultCard" class="result-card hidden"></div>
+
+    <div class="history">
+      <div class="history-head">Recent activity</div>
+      <div id="historyList" class="history-list"></div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
